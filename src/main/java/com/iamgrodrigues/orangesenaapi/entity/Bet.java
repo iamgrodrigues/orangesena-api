@@ -26,6 +26,5 @@ public class Bet implements Serializable {
     @Column(nullable = false)
     private TreeSet<Integer> numbers = new TreeSet<>();
 
-    @Column(nullable = false)
     private Instant moment;
 }
