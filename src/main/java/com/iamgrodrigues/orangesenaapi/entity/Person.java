@@ -26,8 +26,7 @@ public class Person implements Serializable {
     private String email;
 
     @ManyToMany
-    @JoinTable(name = "tb_person_bet",
-            joinColumns = @JoinColumn(name = "person_id"),
+    @JoinTable(joinColumns = @JoinColumn(name = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "bet_id"))
     private List<Bet> bets;
 }
