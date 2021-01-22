@@ -13,7 +13,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/v1")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-public class BetController {
+public class PersonController {
 
     private PersonService personService;
 
