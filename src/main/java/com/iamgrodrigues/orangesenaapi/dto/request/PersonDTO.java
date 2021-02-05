@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -22,5 +22,5 @@ public class PersonDTO {
     @Email
     private String email;
 
-    private List<Bet> bets;
+    private Set<Bet> bets;
 }

@@ -5,12 +5,14 @@ import com.iamgrodrigues.orangesenaapi.entity.Person;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import javax.validation.Valid;
+
 @Mapper
 public interface PersonMapper {
 
     PersonMapper INSTANCE = Mappers.getMapper(PersonMapper.class);
 
-    Person toModel(PersonDTO personDTO);
+    Person toModel(@Valid PersonDTO personDTO);
 
     PersonDTO toDTO(Person person);
 }

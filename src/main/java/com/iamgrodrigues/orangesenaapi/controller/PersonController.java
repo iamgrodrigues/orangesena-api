@@ -2,6 +2,8 @@ package com.iamgrodrigues.orangesenaapi.controller;
 
 import com.iamgrodrigues.orangesenaapi.dto.request.PersonDTO;
 import com.iamgrodrigues.orangesenaapi.dto.response.MessageResponseDTO;
+import com.iamgrodrigues.orangesenaapi.exception.PersonNotFoundException;
+import com.iamgrodrigues.orangesenaapi.repository.PersonRepository;
 import com.iamgrodrigues.orangesenaapi.service.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +18,16 @@ import javax.validation.Valid;
 public class PersonController {
 
     private PersonService personService;
+    private PersonRepository personRepository;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO createPersont(@RequestBody @Valid PersonDTO personDTO) {
+    public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO) {
         return personService.createPerson(personDTO);
+    }
+
+    @GetMapping("/{email}")
+    public PersonDTO findByEmail(@PathVariable String email) throws PersonNotFoundException {
+        return personService.findByEmail(email);
     }
 }

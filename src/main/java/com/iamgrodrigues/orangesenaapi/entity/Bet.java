@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.TreeSet;
 
 @Entity
 @Data
@@ -24,7 +23,7 @@ public class Bet implements Serializable {
     private Long id;
 
     @Column(nullable = false)
-    private TreeSet<Integer> numbers = new TreeSet<>();
+    private String numbers;
 
     private Instant moment;
 }
